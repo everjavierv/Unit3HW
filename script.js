@@ -10,7 +10,7 @@ function writePassword() {
 
   //Pswd criteria
   var pswdLength = prompt(
-    "How many characters woudld you like your password to contain?"
+    "How many characters would you like your password to contain?"
   );
 
   if (pswdLength <= 128 && pswdLength >= 16) {
