@@ -45,32 +45,40 @@ function writePassword() {
     alert("Need to agree to include special characters, try again.");
   }
 
-  var pCount = 0;
-  var passBank =
-    "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/*-+=()[]!@#$%^&<>`~,.:;'|{}";
+  if (
+    pswdLength <= 128 &&
+    pswdLength >= 16 &&
+    numType === true &&
+    lowType === true &&
+    uppType === true &&
+    spcType === true
+  ) {
+    var pCount = 0;
+    var passBank =
+      "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/*-+=()[]!@#$%^&<>`~,.:;'|{}";
 
-  console.log("Passbank Length");
-  console.log(passBank.length);
+    console.log("Passbank Length");
+    console.log(passBank.length);
 
-  var passFinal = "";
-  console.log("different indexes");
+    var passFinal = "";
+    console.log("different indexes");
 
-  for (var i = 0; i < pswdLength; i++) {
-    pCount++;
-    var passTemp = passBank[Math.floor(Math.random() * passBank.length)];
-    console.log(passTemp);
-    passFinal = passFinal + passTemp;
+    for (var i = 0; i < pswdLength; i++) {
+      pCount++;
+      var passTemp = passBank[Math.floor(Math.random() * passBank.length)];
+      console.log(passTemp);
+      passFinal = passFinal + passTemp;
+    }
+    console.log("pswd length");
+    console.log(pCount);
+
+    console.log("password");
+    console.log(passFinal);
+
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = passFinal;
   }
-  console.log("pswd length");
-  console.log(pCount);
-
-  console.log("password");
-  console.log(passFinal);
-
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = passFinal;
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
